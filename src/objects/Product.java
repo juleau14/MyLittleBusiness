@@ -1,7 +1,6 @@
 package objects;
 
 
-
 public class Product {
 	
 	private int id[];							// id du produit de forme [numero de produit dans l'entreprise, id de l'entreprise]
