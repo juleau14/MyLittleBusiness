@@ -14,6 +14,9 @@ import java.util.Scanner;
 
 
 public class Start {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         Enterprise enterprises[];
         int nbPlayers;
@@ -35,7 +38,7 @@ public class Start {
         String enterpriseName;
 
         for (int i = 0; i < nbPlayers; i++) {           // on demande aux joueurs le nom de chaque entreprise
-            System.out.println("Entrez le nom de l'entreprise du joueur " + i + ".");
+            System.out.println("Entrez le nom de l'entreprise du joueur " + i + ".\n");
             enterpriseName = sc.nextLine();
             enterprises[i] = new Enterprise(enterpriseName, i);
         }
@@ -44,5 +47,6 @@ public class Start {
 
         Game partie = new Game(nbPlayers, enterprises, materialsCost);
 
+        partie.main(args);
     }
 }
