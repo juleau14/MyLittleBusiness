@@ -1,41 +1,88 @@
+package objects;
+
+
 public class Enterprise {
-	String name;
-	int id;
+	private String name;
+	private int id;
 
 	/* QUANTITES */
 
-	int cash = 80000;			// cash de l'entreprise
-	int materials = 100;		// quantité de matières premières
-	int employees = 10;			// nombre d'employés
+	private int cash = 80000;			// cash de l'entreprise
+	private int materials = 100;		// quantité de matières premières
+	private int employees = 10;			// nombre d'employés
 	
 
 	/* NOTES */
 
-	float innovation = 30;				// note d'innovation
-	int totalInvestedInnovation = 0; 	// montant total investi dans l'innovation
+	private float innovation = 30;				// note d'innovation
 
 
 	/* PRODUCTION */
 
-	float matieralsPerProduct = 1.0;	// nombre de matières premières pour faire un produit
-	float employeesPerProduct = 0.1;	// nombre d'employés pour faire un produit
+	private float matieralsPerProduct = 1;	// nombre de matières premières pour faire un produit
+	private float employeesPerProduct = 0;	// nombre d'employés pour faire un produit
 
 
-	/* METHODS */
+	/* METHODES */
 	
-	public Enterprise(String name, Strind id) {		// constructor
+	public Enterprise(String name, int id) {		// constructor
 		this.name = name;
 		this.id = id;
 	}
 
 
-	public void addCash(int amount) {				// ajoute du cash
-		this.cash += amount;
+	/* METHODES GET */
+
+
+	public String getName() {
+		return this.name;
 	}
 
 
-	public void removeCash(int amount) {			// supprime du cash
-		this.cash -= amount;
+	public int getId() {
+		return this.id;
+	}
+
+
+	public int getMaterials() {
+		return this.materials;
+	}
+
+	public int getEmployees() {
+		return this.employees;
+	}
+
+
+	public int getCash() {
+		return this.cash;
+	}
+
+
+	public float getInnovation() {
+		return this.innovation;
+	}
+
+
+	public float getMaterialsPerProduct() {
+		return this.matieralsPerProduct;
+	}
+
+
+	public float getEmployeesPerProduct() {
+		return this.employeesPerProduct;
+	}
+
+
+	/* 	METHODES USUELLES */
+
+
+	public void addCash(int amountToAdd) {				// ajoute du cash
+		this.cash += amountToAdd;
+	}
+
+
+	public void removeCash(int amountToRemove) {			// supprime du cash
+		this.cash -= amountToRemove;
 	}
 
 
@@ -49,7 +96,7 @@ public class Enterprise {
 	}
 
 
-	public void calculationInnovation(float amountInvested) {		// calcul l'augmentation de la note d'innovation en fonction du montant investi sur le tour meme
+	public void calculationInnovation(int amountInvested) {		// calcul l'augmentation de la note d'innovation en fonction du montant investi sur le tour meme
 		
 		/* 
 
@@ -61,13 +108,15 @@ public class Enterprise {
 
 		*/
 
-		this.innovation += (amountInvested / 1000) * (100 - innovation) * 0.1;		
+		this.innovation += (amountInvested / 1000) * (100 - this.innovation) * 0.1;		
 	}																				
 
 
-	public void upgradeInnovation(int amount) {			// methode permettant d'ameliorer l'innovation avec du cash
-		removeCash(amount);
-		totalInvestedInnovation += amount;
-		calculationInnovation();
+	public void upgradeInnovation(int amountInvested) {			// methode permettant d'ameliorer l'innovation avec du cash
+		removeCash(amountInvested);
+		calculationInnovation(amountInvested);
 	}
+
+
+	
 }
