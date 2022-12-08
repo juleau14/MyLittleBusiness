@@ -1,7 +1,9 @@
 package objects;
 
 
+
 public class Product {
+	
 	private int id[];							// id du produit de forme [numero de produit dans l'entreprise, id de l'entreprise]
 
 	private float innovation;					// note d'innovation egale à l'innovation de l'entreprise au moment de la création
